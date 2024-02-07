@@ -7,5 +7,10 @@ book {{id}}
 Book title = {{title}}
 Book Author= {{author}}
 rating = {{rating}}
-
+slug = {{slugify}}
+{% if isbestseller %}
+BestSeller = True
+{% else %}
+Not a BestSeller
+{% endif %}
 {% endblock  %}
