@@ -7,7 +7,7 @@ good morning
 <h3>This is the db acccessed by template</h3>
 <ul>
         {%for book in books%}
-            <li>{{book.title}} {{book.rating}} by {{book.author}}</li>
+            <li><a href="{% url "post-details" book.id%}">{{book.title}} </a>{{book.rating}} by {{book.author}}</li>
         {% endfor %}
 </ul>
 {% endblock %}
