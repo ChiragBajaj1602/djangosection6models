@@ -8,7 +8,7 @@ class Book(models.Model):
     rating=models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
     author=models.CharField(null=True,max_length=100)
     isbestselling=models.BooleanField(default=False)
-    slug=models.SlugField(default="",null=False)
+    slug=models.SlugField(default="",null=False,blank=True)
 
     def __str__(self):
         return f"{self.title} {self.author} {self.rating} {self.isbestselling}"
