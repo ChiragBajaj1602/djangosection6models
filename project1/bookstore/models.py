@@ -3,9 +3,16 @@ from django.core.validators import MinValueValidator,MaxValueValidator
 from django.urls import reverse
 from django.utils.text import slugify
 # Create your models here.
+class Address(models.Model):
+    street=models.CharField(max_length=100)
+    postal_code=models.IntegerField()
+    city=models.CharField(max_length=80)
+    def __str__(self):
+        return f'{self.street} {self.city} {self.postal_code}'
 class Author(models.Model):
     fname=models.CharField(max_length=50,null=True)
     lname=models.CharField(max_length=51,null=True)
+    address=models.OneToOneField(Address,on_delete=models.CASCADE,null=True)
     def __str__(self):
         return f'{self.fname} {self.lname}'
 class Book(models.Model):
